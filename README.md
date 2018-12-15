@@ -1,14 +1,7 @@
 stars-to-addresses
 ==================
 
-Get addresses from Google starred locations
-
-Dependencies
-------------
-* Python
-* lxml
-* geopy
-* simplekml
+Export locations from Google bookmarks to KML.
 
 Usage
 -----
@@ -17,17 +10,10 @@ Usage
 * Run this script with the downloaded GoogleBookmarks.html on its directory
 * Read the output
 
-But... how to run the script?
+Running the script
 -----------------------------
 
-There are several ways to do this, I'm not suggesting the only way, the correct
-way, and maybe not even the simplest way. Any doubts you have on this, please
-[open an issue](https://github.com/marado/stars-to-addresses/issues).
+1. Install dependencies with PIP: `pip install -r requirements.txt`
+2. Copy the `GoogleBookmarks.html` file to the directory with a script
+3. Run the script: `python stars-to-addresses.py`
 
-1) Clone this repository. You can find out how to do it on [github's
-   documentation](https://help.github.com/articles/cloning-a-repository/);
-
-2) Open the cloned directory, and place the GoogleBookmarks.html files there;
-
-3) Execute the `stars-to-addresses.py` script (if you're using a console, 
-   just type `python stars-to-addresses.py`).

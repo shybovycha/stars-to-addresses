@@ -11,47 +11,14 @@ This script is based on https://gist.github.com/endolith/3896948
 
 import sys
 
-try:
-	from lxml.html import document_fromstring
-except ImportError:
-	print "You need to install lxml.html"
-	sys.exit()
-
-try:
-	from geopy.geocoders import Nominatim
-except ImportError:
-	print "You need to install geopy"
-	sys.exit()
-
-try:
-	import simplekml
-except ImportError:
-	print "You need to install simplekml"
-	sys.exit()
-
-try:
-	import json
-except ImportError:
-	print "You need to install json"
-	sys.exit()
-
-try:
-	from urllib2 import urlopen
-except ImportError:
-	print "You need to install urllib2"
-	sys.exit()
-
-try:
-	import re
-except ImportError:
-	print "You need to install re"
-	sys.exit()
-
-try:
-	import time
-except ImportError:
-	print "You need to install time"
-	sys.exit()
+from lxml.html import document_fromstring
+from geopy.geocoders import Nominatim
+import simplekml
+import json
+from urllib2 import urlopen
+from urllib import urencode
+import re
+import time
 
 filename = r'GoogleBookmarks.html'
 
@@ -83,13 +50,13 @@ def main():
             else:
                 # Load map and find coordinates in source of page
                 try:
-                    sock = urlopen(url.replace(' ','+').encode('UTF8'))
+                    sock = urlopen(url.replace(' ', '+').encode('UTF8'))
                 except Exception, e:
                     print 'Connection problem:'
                     print repr(e)
                     print 'Waiting 2 minutes and trying again'
                     time.sleep(120)
-                    sock = urlopen(url.replace(' ','+').encode('UTF8'))
+                    sock = urlopen(url.replace(' ', '+').encode('UTF8'))
                 content = sock.read()
                 sock.close()
                 time.sleep(3) # Don't annoy server
